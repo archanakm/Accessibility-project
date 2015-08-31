@@ -1,0 +1,174 @@
+/*html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight: normal;
+    text-decoration: none;
+    outline: none;
+}*/
+ol, ul {list-style: none;}
+body {
+    padding:0;
+    margin:0;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: bold;
+    direction: ltr;
+    font: 81.25% arial, helvetica, sans-serif;
+    /*font-family: 'Conv_Nexa Slab Regular';*/
+}
+.container{
+    width:100%;
+    margin:10px auto;
+    background-color: #fff;
+}
+.header{
+    background-color:#4184F3;
+    width:100%;
+    height:70px;    
+    border-bottom: 10px solid #8ED2FF;
+}
+.header h1{
+  font-size:25px !important;
+  margin:0px;
+  line-height:30px!important;
+  text-align:left; 
+  padding-top:15px;
+  padding-left: 10px;
+}
+.footer{
+    color:white;
+    height:25px;
+    font-size: 12px;
+    font-weight: bold !important;
+    line-height: 2em !important;
+    text-align:center;
+    background-color:#4184F3;
+    bottom:0;
+    right: 0;
+    left: 0;
+    position:fixed;
+}
+.data{
+    padding:50px 0;
+}
+
+.loginBox{
+    color: black;
+  margin-top: 3em;
+  margin-bottom: 15em;
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 369px;
+  height: 177px;
+  border: 2px solid #e5e5e5;
+  background-color: #f1f1f1;
+
+}
+.loginBox input[type="text"], .loginBox input[type="password"] {
+  border: 1px solid #ccc;
+  height: 25px;
+  padding: 0 5px;
+  margin: 0 0 12px;
+}
+.loginBox input[type="submit"] {
+   margin: 2px 20px;
+}
+.header-right {
+    float: right;
+    margin:35px 0;
+}
+.welcome {
+    float: right;
+    color:black;
+    padding-right: 5px;
+}
+.logout {
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: center;
+    background-image: url(../img/logout.png);
+    width: 25px;
+    height: 25px;
+    float: right;
+}
+.user-data{
+    margin: 35px 0 30px;
+}
+ .user-data .panel-primary>.panel-heading, .all-data .panel-primary>.panel-heading{
+  color: #fff ;
+  background-color: #4184F3;
+  border-color: #4184F3;
+}
+.profileBox{
+  color: black;
+  min-height: 150px;
+}
+.profList {
+    width: 20em;
+    margin:0;
+    word-wrap: break-word;
+    display: inline-block;
+}
+.profList i {
+    color: #aaa;
+    font-style: normal;
+    display:inline-block;
+    width:134px;
+}
+.profList li {
+    padding: 5px 0 5px 0;
+}
+.profPic{
+  width: 100px;
+  height: 100px;
+  margin: 12px 10px;
+  border:2px solid #e5e5e5;
+  float:left;
+}
+.profPic img{
+    width:100%;
+    padding-top:16px;   
+}
+.profDetails{
+    float: left;
+}
+span{
+  font-weight: bold;
+  display: block;
+  padding: 8px;
+}
+.user-data .form-group{
+    color:black !important;
+}
+.user-data .panel {
+  max-width: 600px; 
+  margin:0 auto;
+}
+
+.all-data .table{
+    color:black;
+    width: 100%;
+    max-width: 100%;
+}
+.all-data tr, .all-data td{
+    color:blue;
+}
+.all-data .img-responsive {
+    display: block;
+    height: auto;
+    width:100%;
+    
+}
+@media screen and (max-width: 480px) {
+    
+ .profPic,.profDetails{ 
+     float:none;
+ }
+ .profPic {
+       margin: 0 auto; 
+ }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+         <script type="text/javascript" src="js/jquery.min.js"></script>
+       
+         <script src="js/bootstrap.min.js"></script>
+  
+    </head>
+    <body class="home">
+        
+
+
+    <section class = "user-data">
+        <div class="panel panel-primary">
+                <div class="panel-heading">User profile</div>
+                <div class="panel-body">
+                    <div id ="profileBox" class="profileBox clearfix">
+                        <div class = "profPic">
+                                <img src="img/emp_ico.png" class="img-responsive" alt="profile picture" width="80" height="100">
+                        </div>
+                        <div class = "profDetails">
+                            <ul class ="list-group profList">
+                                <li class="list-group-item-text" id="username"><i>Employee Name:</i><v>User-1</v>
+                                </li>
+                                <li class="list-group-item-text" id="userId"><i>Employee Id:</i>
+                                    <v>Emp -101</v>
+                                </li>
+                                <li class="list-group-item-text" id="location"><i>Location :</i>
+                                     <v>India</v>
+                                </li>
+                                <li class="list-group-item-text" id="role"><i>Role :</i>
+                                    <v>Software Developer</v>
+                                </li>
+                                <li class="list-group-item-text" id="skills"><i>Skills :</i>
+                                    <v>HTML5, CSS, JQuery</v>
+                                </li>
+                                <li class="list-group-item-text" id="projects"><i>Projects :</i>
+                                   <v>P1, P2, P3</v>
+                                </li>
+                            </ul>
+
+                         </div>   
+                    </div>  
+        <button type="button" id="editBtn" class="btn btn-primary" style="float:right;background-color:#4184F3" onClick="editProf()">Edit</button>
+     </div>
+        
+</div>
+</section>
+        <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body" style="padding:40px 50px;">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+             <label class = "control-label" for="username">Employee Name:</label>
+                <input type="text" class="form-control" id="username">
+                <label class = "control-label" for="userId">Employee Id:</label>
+                <input type="text" class="form-control" id="userId">
+                 <label class = "control-label" for="location">Location:</label>
+                <input type="text" class="form-control" id="location">
+                <label class = "control-label" for="role">Role:</label>
+                <input type="text" class="form-control" id="role">
+                <label class = "control-label" for="skills">Skills:</label>
+                <input type="text" class="form-control" id="role">
+                <label class = "control-label" for="projects">Projects:</label>
+                <input type="text" class="form-control" id="projects">
+            </div>
+         <!--   <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>-->
+             <!-- <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>-->
+          </form>
+        </div>
+        <div class="modal-footer" style="padding:15px 200px;">
+            <button type="button" class="btn btn-success btn-default pull-left" data-dismiss="modal" onClick="SaveData()">Save</button>
+          <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal" style="margin-left:45px;">Cancel</button>
+    </div>
+      </div>
+      
+    </div>
+  </div> 
+        
+        
+    </body>
+</html>

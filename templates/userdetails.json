@@ -1,0 +1,44 @@
+{
+    "users": [{
+        
+            "username": "User1",
+            "userId": "U-101",
+            "location": "India",
+            "role": "Developer",
+            "skills": "HTML5",
+            "projects": "P1,P2"
+        },
+        {
+            "username": "User2",
+            "userId": "U-102",
+            "location": "USS",
+            "role": "PM",
+            "skills": "JS",
+            "projects": "P3,P4"
+        },
+        {
+            "username": "User3",
+            "userId": "U-102",
+            "location": "USS",
+            "role": "PM",
+            "skills": "JS",
+            "projects": "P3,P4"
+        },
+        {
+            "username": "User4",
+            "userId": "U-102",
+            "location": "USS",
+            "role": "PM",
+            "skills": "JS",
+            "projects": "P3,P4"
+        },
+        {
+            "username": "User5",
+            "userId": "U-102",
+            "location": "USS",
+            "role": "Con",
+            "skills": "JS",
+            "projects": "P3,P4"
+        }
+              
+]}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Accessibility project</title>
+         <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+        
+         <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        
+    </head>
+    <body class="home">
+        <header class="header"><h1>Employee Portal</h1>
+                    <div class="header-right" style="display:none">
+                            <div class="logout" onclick="onlogout()"s></div>
+                        <p class = "welcome">Log Out</p>
+                </div>
+        </header>       
+        
+        <main class = "container">
+      
+            <div class="data" id="data">
+                        <div class="loginBox" id="loginBox">
+                                    <form class="loginForm" id="loginForm"  method="post">
+                                <p>
+                            <label for="username">Username : </label><input id="username" name="username" type="text" value="admin" size="25" aria-required='true' />
+                            </p>
+                                 <p>
+                            <label for="password">Password : </label><input id="password" name="password" type="password" value="User2" size="25" aria-required='true' />
+                            </p>
+                        <button type="submit" value="Login" class="btn btn-primary" style="float:right;background-color:#4184F3" >Login</button>                 
+                            </form>
+                        </div>
+         </div>  
+    </main>
+    
+    <footer class="footer">&copy;2015 Employee Portal</footer>        
+        
+    </body>
+</html>
