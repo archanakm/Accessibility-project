@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function getUserDetails() {
     obj.arr = [];
-    obj.user = $('.loginForm input[type=text]').val();
+    obj.user = $('#uname').val();
     $.getJSON('./templates/userdetails.json', function (data) {
          $.each(data.users, function(key, value){
             if(value.username == obj.user){
@@ -41,7 +41,7 @@ function loadProfiles(val){
 	      <div class="panel-body">\
 		<div id ="profileBox" class="profileBox clearfix">\
 		           <div class = "profPic">\
-                               		 <img src="img/emp_ico.png" class="img-responsive" alt="profile picture" width="80" height="100">\
+                           <img src="img/emp_ico.png" class="img-responsive" alt="profile picture" width="80"                                           height="100">\
                                      </div>\
                     <div class = "profDetails">\
             <ul class="list-group profList">\
@@ -72,7 +72,7 @@ function loadProfiles(val){
                        </ul>\
 	               </div>\
          </div>\
-        <button type="button" id="editBtn" class="btn btn-primary" style="float:right;background-color:#4184F3"      onClick="editProf()">Edit</button>\
+        <button type="button" id="editBtn" class="btn btn-primary" style="float:right;background-color:#0174df"     >Edit</button>\
  	 </div>\
  	</div>\
 </section>';
@@ -87,10 +87,11 @@ function loadAllUsers(val){
     var alldata =  '\
         <section class="all-data" id="all-data">\
                  <div class="panel panel-primary">\
-                    <div class="panel-heading">User profile</div>\
+                    <div class="panel-heading"></div>\
                         <div class="panel-body">\
                           <section class = "table-responsive">\
                             <table class="table table-responsive table-bordered table-hover table-condensed">\
+                              <caption style="text-align:center;color:#0101DF"><h4>Users List</h4></caption>\
                                  <thead>\
                                     <tr>\
                                       <th>User</th>\
@@ -120,9 +121,11 @@ function loadAllUsers(val){
                 $('<td>').text(val[i].role),
                 $('<td>').text(val[i].skills),
                 $('<td>').text(val[i].projects),
-                $('<td><button type="button" id="editBtn" class="btn btn-primary" style="align:center;background-color:#4184F3"      onClick="editProf()">Edit</button></td>')).appendTo($("#all-data").find('tbody'));
+                $('<td><button type="button" id="editBtn'+i+'" class="btn btn-primary" style="align:center;background-color:#0174df">Edit</button></td>')).appendTo($("#all-data").find('tbody'));
     });
-        
+        $("#editBtn").on('click', function() {
+            alert('you clicked me!');
+    });
 }
 function editProf(){
     $("#myModal").modal();
