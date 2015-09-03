@@ -38,6 +38,13 @@ body {
   padding-top:15px;
   padding-left: 10px;
 }
+.confirm h3{
+    border: 2px solid #2ECCFA;
+    color: #0174DF;
+    line-height: 46px;
+    margin: 6em auto;
+    text-align: center;
+}
 .home .footer{
     color:#fff;
     height:25px;

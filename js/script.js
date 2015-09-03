@@ -1,28 +1,28 @@
-var obj;
+/*http://webaim.org/techniques/*/
+var obj,jsn;
 $(document).ready(function() {
-    obj = new Object();
+    obj = jsn = new Object();
     $("form").submit(function(e) {
             e.preventDefault();
-            getUserDetails();
+             getUserDetails();
     });
 });
-
 function getUserDetails() {
     obj.arr = [];
-    obj.user = $('#uname').val();
+    obj.currUser = $('#uname').val();
     $.getJSON('./templates/userdetails.json', function (data) {
-         $.each(data.users, function(key, value){
-            if(value.username == obj.user){
+       $.each(data.users, function(key, value){
+           jsn.userData = data.users;
+            if(value.username == obj.currUser){
                 obj.arr = $.map(value, function(elem) { return elem; });
-            
             }
-             else if(obj.user == "admin"){
+             else if(obj.currUser == "admin"){
                  obj.arr = $.map(data.users, function(elem) { return elem; });
              }
         });
         $('.header-right').show();
         $('#loginBox').hide();
-        checkUser(obj.user);       
+        checkUser(obj.currUser);       
      });  
 }
 function checkUser(user){
@@ -34,7 +34,7 @@ function checkUser(user){
     }
 }
 function loadProfiles(val){
-    var userProfile = '\
+   obj.userProfile = '\
         <section class="user-data">\
 	<div class="panel panel-primary">\
 	   <div class="panel-heading">User profile</div>\
@@ -72,12 +72,11 @@ function loadProfiles(val){
                        </ul>\
 	               </div>\
          </div>\
-        <button type="button" id="editBtn" class="btn btn-primary" style="float:right;background-color:#0174df"     >Edit</button>\
+        <button type="button" id="editBtn" class="btn btn-primary" onClick = "editProf($(this))"; style="float:right;background-color:#0174df">Edit</button>\
  	 </div>\
  	</div>\
 </section>';
- $('#data').append(userProfile);
-    
+ $('#data').append(obj.userProfile);
     $.each($(".profList li"), function(i){ 
         obj.itemId = $(this).attr('id');
          $("li[id="+obj.itemId+"]").find("v").text(val[i]);
@@ -90,18 +89,18 @@ function loadAllUsers(val){
                     <div class="panel-heading"></div>\
                         <div class="panel-body">\
                           <section class = "table-responsive">\
-                            <table class="table table-responsive table-bordered table-hover table-condensed">\
+                            <table id="alluserTable" class="table table-responsive table-bordered table-hover table-condensed">\
                               <caption style="text-align:center;color:#0101DF"><h4>Users List</h4></caption>\
                                  <thead>\
                                     <tr>\
-                                      <th>User</th>\
-                                       <th>Username</th>\
-                                        <th>UserId</th>\
-                                        <th>Location</th>\
-                                         <th>Role</th>\
-                                         <th>Skills</th>\
-                                        <th>Projects</th>\
-                                        <th>Edit</th>\
+                                      <th scope="col">User</th>\
+                                       <th scope="col" id="username">Username</th>\
+                                        <th scope="col" id="userId">UserId</th>\
+                                        <th scope="col" id="location">Location</th>\
+                                         <th scope="col" id="role">Role</th>\
+                                         <th scope="col" id="skills">Skills</th>\
+                                        <th scope="col" id="projects">Projects</th>\
+                                        <th scope="col">Edit</th>\
                                        </tr>\
                                     </thead>\
                                 <tbody>\
@@ -114,30 +113,25 @@ function loadAllUsers(val){
     $('#data').append(alldata);
     $.each(val, function(i){
                 $('<tr class = "danger">').append(
-                $('<td style="width:15%"><div><img class ="img-responsive" src="img/emp_ico.png" class="img-thumbnail" alt="profile picture"><div></td>'),
-                $('<td>').text(val[i].username),
+                $('<td style="width:15%"><div><img class="img-responsive" src="img/emp_ico.png" class="img-thumbnail" alt="profile-picture"><div></td>'),
+                $('<td scope="row">').text(val[i].username),
                 $('<td>').text(val[i].userId),
                 $('<td>').text(val[i].location),
                 $('<td>').text(val[i].role),
                 $('<td>').text(val[i].skills),
                 $('<td>').text(val[i].projects),
-                $('<td><button type="button" id="editBtn'+i+'" class="btn btn-primary" style="align:center;background-color:#0174df">Edit</button></td>')).appendTo($("#all-data").find('tbody'));
-    });
-        $("#editBtn").on('click', function() {
-            alert('you clicked me!');
+                $('<td><button type="button" id="editBtn_'+val[i].username+'" class="btn btn-primary" style="align:center;background-color:#0174df" onClick = "whichUser($(this))">Edit</button></td>')).appendTo($("#all-data").find('tbody'));
     });
 }
-function editProf(){
-    $("#myModal").modal();
-}
-function SaveData(){
- $(".form-control").each(function(val) {
-    obj.itemId = $(this).attr('id');
-     if($(this).val() != ''){
-        $("li[id="+obj.itemId+"]").find("v").text($(this).val());
-         $(this).val(" ");
-     }
- });
+function whichUser(who){
+    obj.whichuser = who;
+    var user = who.attr('id').split("_")[1];
+    $.each(jsn.userData, function(key, value){
+        if(value.username == user){
+                obj.arr= $.map(value, function(elem) { return elem; });
+            }
+    });
+    editProf();
 }
 function onlogout(){
     $('#data > *:not(#loginBox)').remove();
